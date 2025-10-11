@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5rem);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 45%, #fff5fb 100%);
+  padding: clamp(3.5rem, 8vw, 5rem) clamp(1.5rem, 6vw, 4.5rem) clamp(5rem, 10vw, 7rem);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(1.2rem, 2.5vw, 1.9rem);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.heroEyebrow {
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: rgba(132, 0, 255, 0.7);
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.1rem, 4.5vw, 4.8rem);
+  line-height: 1.04;
+  color: #0f172a;
+}
+
+.hero p {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.9;
+  color: rgba(30, 41, 59, 0.75);
+}
+
+.heroAccent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(99, 102, 241, 0.75);
+}
+
+.heroAccent::before,
+.heroAccent::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: clamp(40px, 6vw, 70px);
+  background: linear-gradient(90deg, rgba(132, 0, 255, 0.45), transparent);
+}
+
+.heroAccent::after {
+  background: linear-gradient(90deg, transparent, rgba(132, 0, 255, 0.45));
+}
+
+.gallerySection {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.gallerySection header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  max-width: 680px;
+}
+
+.gallerySection header h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  color: #111827;
+}
+
+.gallerySection header p {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  color: rgba(30, 41, 59, 0.72);
+  line-height: 1.85;
+}
+
+.bentoWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.masonryBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(1rem, 2.2vw, 1.8rem);
+  max-width: 760px;
+}
+
+.masonryBlock h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  color: #0f172a;
+}
+
+.masonryBlock p {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  color: rgba(30, 41, 59, 0.72);
+  line-height: 1.85;
+}
+
+.masonryShell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  width: min(1100px, 96vw);
+}
+
+.noteCard {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: clamp(1.4rem, 2.8vw, 2rem);
+  border: 1px solid rgba(132, 0, 255, 0.18);
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+}
+
+.noteCard h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: #0f172a;
+}
+
+.noteCard p {
+  font-family: "Lato", sans-serif;
+  font-size: 0.96rem;
+  color: rgba(30, 41, 59, 0.7);
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-inline: 1.4rem;
+  }
+
+  .heroAccent {
+    font-size: 0.78rem;
+  }
+
+  .masonryBlock {
+    max-width: none;
+  }
+}

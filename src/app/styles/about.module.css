@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vw, 6rem);
+  background: linear-gradient(180deg, #ffffff 0%, #fef6fb 100%);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.75rem, 6vw, 5rem) 0;
+  align-items: center;
+  position: relative;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.8rem);
+  color: rgba(55, 65, 81, 0.9);
+}
+
+.heroEyebrow {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  color: rgba(244, 114, 182, 0.75);
+}
+
+.heroHeading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.9rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  color: #111827;
+}
+
+.heroBody {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.9;
+  color: rgba(71, 85, 105, 0.85);
+  max-width: 48ch;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primaryLink,
+.secondaryLink {
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: clamp(0.7rem, 0.9vw, 0.82rem);
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.primaryLink {
+  background: linear-gradient(135deg, #ec4899, #f97316);
+  color: #fff6fb;
+  box-shadow: 0 18px 38px rgba(236, 72, 153, 0.35);
+}
+
+.primaryLink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(236, 72, 153, 0.45);
+}
+
+.secondaryLink {
+  border: 1px solid rgba(244, 114, 182, 0.4);
+  color: rgba(244, 114, 182, 0.9);
+  background: rgba(244, 114, 182, 0.08);
+}
+
+.secondaryLink:hover {
+  background: rgba(244, 114, 182, 0.16);
+}
+
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.heroStats div {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(252, 165, 165, 0.28);
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+  box-shadow: 0 15px 38px rgba(15, 23, 42, 0.1);
+}
+
+.heroStats span {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #111827;
+}
+
+.heroStats p {
+  font-size: 0.9rem;
+  color: rgba(71, 85, 105, 0.8);
+  line-height: 1.5;
+}
+
+.heroMedia {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.heroMediaGlow {
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(circle at 30% 40%, rgba(236, 72, 153, 0.16), transparent 65%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.heroMedia img {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 90%);
+  border-radius: clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid rgba(252, 165, 165, 0.3);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.18);
+}
+
+.heroBadge {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  right: clamp(-0.5rem, 4vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 1.5rem;
+  padding: 1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  border: 1px solid rgba(236, 72, 153, 0.28);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+}
+
+.heroBadge span {
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(236, 72, 153, 0.75);
+}
+
+.heroBadge strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  color: #111827;
+}
+
+.valuesSection {
+  padding: 0 clamp(1.75rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.valuesSection header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 60ch;
+}
+
+.sectionEyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(244, 114, 182, 0.75);
+}
+
+.valuesSection header h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.1rem);
+  color: #111827;
+}
+
+.valuesSection header p {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  color: rgba(71, 85, 105, 0.85);
+  line-height: 1.85;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.valuesGrid article {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(252, 165, 165, 0.22);
+  border-radius: clamp(1.2rem, 2vw, 1.8rem);
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-height: 220px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.valuesGrid article h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.valuesGrid article p {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(71, 85, 105, 0.8);
+  line-height: 1.75;
+}
+
+.timelineSection {
+  padding: 0 clamp(1.75rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.timelineHeader h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  color: #111827;
+}
+
+.timelineRail {
+  position: relative;
+  display: flex;
+  gap: clamp(2rem, 3vw, 3rem);
+  padding-top: clamp(2rem, 3vw, 2.5rem);
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.timelineRail::before {
+  content: "";
+  position: absolute;
+  top: clamp(1rem, 2vw, 1.4rem);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(236, 72, 153, 0.4), rgba(59, 130, 246, 0.25));
+}
+
+.timelineNode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-top: clamp(2.4rem, 4vw, 3rem);
+  min-width: 220px;
+}
+
+.timelineNode::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * clamp(1rem, 2vw, 1.4rem));
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(236, 72, 153, 0.9), rgba(236, 72, 153, 0));
+  box-shadow: 0 0 0 6px rgba(236, 72, 153, 0.15);
+  transform: translateY(-50%);
+}
+
+.timelineYear {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  color: rgba(236, 72, 153, 0.85);
+}
+
+.timelineCard {
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: clamp(1.1rem, 2vw, 1.6rem);
+  border: 1px solid rgba(252, 165, 165, 0.22);
+  padding: clamp(1.3rem, 2.2vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 48ch;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+}
+
+.timelineCard h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  color: #111827;
+}
+
+.timelineCard p {
+  font-family: "Lato", sans-serif;
+  font-size: 0.96rem;
+  color: rgba(71, 85, 105, 0.8);
+  line-height: 1.75;
+}
+
+.teamSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  padding: 0 clamp(1.75rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.teamCopy {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  color: rgba(55, 65, 81, 0.88);
+}
+
+.teamCopy h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  color: #111827;
+}
+
+.teamCopy p {
+  font-family: "Lato", sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: rgba(71, 85, 105, 0.85);
+  line-height: 1.85;
+}
+
+.teamMedia {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.teamMediaGlow {
+  position: absolute;
+  inset: -14%;
+  background: radial-gradient(circle at 60% 40%, rgba(59, 130, 246, 0.15), transparent 65%);
+  filter: blur(110px);
+}
+
+.teamMedia img {
+  width: min(440px, 90%);
+  border-radius: clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid rgba(252, 165, 165, 0.26);
+  box-shadow: 0 35px 60px rgba(15, 23, 42, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .teamSection {
+    grid-template-columns: 1fr;
+  }
+
+  .heroStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .heroStats {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineRail::before {
+    left: 0.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-inline: 1.5rem;
+  }
+
+  .valuesSection,
+  .timelineSection,
+  .teamSection {
+    padding-inline: 1.5rem;
+  }
+
+  .timelineCard,
+  .valuesGrid article {
+    min-height: auto;
+  }
+}
