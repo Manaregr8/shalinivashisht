@@ -126,8 +126,6 @@ const HeroBanner = () => {
                     <div className={styles.absoluteStyle}>
                         <img src="/sve.svg" alt="SVE typography" />
                     </div>
-
-                    <img className={styles.logo} src="/MainLogo.png" alt="SVE" />
                 </div>
             </main>
             <section
