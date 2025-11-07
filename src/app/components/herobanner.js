@@ -22,13 +22,13 @@ const slides = [
         id: 'editorial-muse',
         src: '/hdimages/SendAnywhere_001278/5-2.jpg',
         alt: 'High-fashion campaign look with velvet liner and reflective skin.',
-        objectPosition: '50% 30%',
+        objectPosition: '50% 28%',
     },
     {
         id: 'destination-vows',
         src: '/hdimages/SendAnywhere_658944/2cff726c-a94b-4b3b-bbdc-660279294891.jpg',
         alt: 'Destination wedding beauty captured in golden hour light.',
-        objectPosition: '50% 30%',
+        objectPosition: '50% 45%',
     },
 ];
 
@@ -53,7 +53,7 @@ const featureSections = [
         image: {
             src: '/hdimages/SendAnywhere_658944/053ccbe7-b73a-45de-98d3-12a223e3f270.jpg',
             alt: 'Editorial muse on-set with sculpted glam direction.',
-            objectPosition: '50% 10%',
+            objectPosition: '50% 35%',
         },
         align: 'left',
     },
@@ -126,10 +126,24 @@ const HeroBanner = () => {
 
                     <aside className={styles.contentRight}>
                         <p className={styles.eyebrow}>Luxury makeup atelier</p>
-                        <h1 className={styles.heading}>Handcrafted by Shalini Vashisht.</h1>
+                        <h1 className={styles.heading}>Couture beauty, handcrafted by Shalini Vashisht.</h1>
                         <p className={styles.copy}>
-                            Senior artist Shalini Vashisht sculpts luminous, skin-loving looks for brides, celebrities, and campaigns worldwide.
+                            Senior makeup director Shalini Vashisht sculpts luminous, skin-loving looks for brides, celebrities, and
+                            campaigns worldwide. Each face chart blends skin science, ritual, and couture instinct so your glow feels
+                            timeless in every spotlight.
                         </p>
+                        <p className={styles.copy}>
+                            From pheran dawn ceremonies to fashion-week finales, the atelier choreographs bespoke prep rituals, travel
+                            touch-up suites, and on-call artistry that keeps you photo ready from first look to final frame.
+                        </p>
+                        <div className={styles.ctaRow}>
+                            <Link href="/contact" className={`${styles.ctaButton} ${styles.primaryCta}`}>
+                                Book your consultation
+                            </Link>
+                            <Link href="#services" className={`${styles.ctaButton} ${styles.secondaryCta}`}>
+                                Explore signature services
+                            </Link>
+                        </div>
                         <div className={styles.signature}>
                             <img src="/makeup.svg" alt="makeup signature" />
                         </div>

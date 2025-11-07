@@ -1,40 +1,71 @@
 "use client";
-import { useState } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.css';
 
 export default function Navbar() {
-	const [isSocialDropdownOpen, setIsSocialDropdownOpen] = useState(false);
-	const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+	const [isSocialOpen, setIsSocialOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const navRef = useRef(null);
+
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (!navRef.current) return;
+			if (!navRef.current.contains(event.target)) {
+				setIsSocialOpen(false);
+				setIsMenuOpen(false);
+			}
+		};
+
+		const handleEscape = (event) => {
+			if (event.key === 'Escape') {
+				setIsSocialOpen(false);
+				setIsMenuOpen(false);
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener('keydown', handleEscape);
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener('keydown', handleEscape);
+		};
+	}, []);
 
 	const toggleSocialDropdown = () => {
-		setIsSocialDropdownOpen(!isSocialDropdownOpen);
-		setIsMenuDropdownOpen(false); // Close menu dropdown when social opens
+		setIsSocialOpen((prev) => {
+			const nextState = !prev;
+			if (nextState) setIsMenuOpen(false);
+			return nextState;
+		});
 	};
 
 	const toggleMenuDropdown = () => {
-		setIsMenuDropdownOpen(!isMenuDropdownOpen);
-		setIsSocialDropdownOpen(false); // Close social dropdown when menu opens
+		setIsMenuOpen((prev) => {
+			const nextState = !prev;
+			if (nextState) setIsSocialOpen(false);
+			return nextState;
+		});
 	};
 
-	const closeBothDropdowns = () => {
-		setIsSocialDropdownOpen(false);
-		setIsMenuDropdownOpen(false);
+	const closeDropdowns = () => {
+		setIsSocialOpen(false);
+		setIsMenuOpen(false);
 	};
 
 	return (
-		<nav className={styles.navbar} aria-label="Main navigation">
-			{/* Social Icon with Dropdown */}
+		<nav className={styles.navbar} aria-label="Main navigation" ref={navRef}>
 			<div className={styles.dropdownContainer}>
-				<img 
-					src='/social.svg' 
-					alt="Socials Icon" 
+				<img
+					src="/social.svg"
+					alt="Socials Icon"
 					className={`${styles.socialS} ${styles.clickable}`}
 					onClick={toggleSocialDropdown}
 				/>
-				
-				{/* Social Dropdown */}
-				{isSocialDropdownOpen && (
+
+				{isSocialOpen && (
 					<div className={`${styles.dropdown} ${styles.socialDropdown}`}>
 						<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/facebook.svg" alt="Facebook" className={styles.socialIcon} />
@@ -46,52 +77,64 @@ export default function Navbar() {
 							<img src="/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
 						</a>
 						<a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-							<img src="/x.png" alt="Twitter" className={styles.socialIcon} style={{padding:'2px'}}/>
+							<img src="/x.png" alt="Twitter" className={styles.socialIcon} style={{ padding: '2px' }} />
 						</a>
 					</div>
 				)}
 			</div>
 
 			<img className={styles.logo} src="/Shalini Mam Logo (N).png" alt="Site Logo" />
-			
-			{/* Menu Icon with Dropdown */}
+
 			<div className={styles.dropdownContainer}>
-				<img 
-					src='/menu.svg' 
-					alt="Menu Icon" 
+				<img
+					src="/menu.svg"
+					alt="Menu Icon"
 					className={`${styles.socialS} ${styles.clickable}`}
 					onClick={toggleMenuDropdown}
 				/>
-				
-				{/* Menu Dropdown */}
-				{isMenuDropdownOpen && (
+
+				{isMenuOpen && (
 					<div className={`${styles.dropdown} ${styles.menuDropdown}`}>
 						<ul className={styles.dropdownNavList}>
 							<li className={styles.dropdownNavItem}>
-								<Link href="/" onClick={closeBothDropdowns}>Home</Link>
+								<Link href="/" onClick={closeDropdowns}>
+									Home
+								</Link>
 							</li>
 							<li className={styles.dropdownNavItem}>
-								<Link href="/about" onClick={closeBothDropdowns}>About</Link>
+								<Link href="/about" onClick={closeDropdowns}>
+									About
+								</Link>
 							</li>
 							<li className={styles.dropdownNavItem}>
-								<Link href="/gallery" onClick={closeBothDropdowns}>Gallery</Link>
+								<Link href="/gallery" onClick={closeDropdowns}>
+									Gallery
+								</Link>
 							</li>
 							<li className={styles.dropdownNavItem}>
-								<Link href="/contact" onClick={closeBothDropdowns}>Contact</Link>
+								<Link href="/contact" onClick={closeDropdowns}>
+									Contact
+								</Link>
 							</li>
 						</ul>
 					</div>
 				)}
 			</div>
-			
-			{/* Hidden original nav list */}
+
 			<ul className={styles.navList}>
-				<li className={styles.navItem}><Link href="/">Home</Link></li>
-				<li className={styles.navItem}><Link href="/about">About</Link></li>
-				<li className={styles.navItem}><Link href="/gallery">Gallery</Link></li>
-				<li className={styles.navItem}><Link href="/contact">Contact</Link></li>
+				<li className={styles.navItem}>
+					<Link href="/">Home</Link>
+				</li>
+				<li className={styles.navItem}>
+					<Link href="/about">About</Link>
+				</li>
+				<li className={styles.navItem}>
+					<Link href="/gallery">Gallery</Link>
+				</li>
+				<li className={styles.navItem}>
+					<Link href="/contact">Contact</Link>
+				</li>
 			</ul>
-			
 		</nav>
 	);
 }
