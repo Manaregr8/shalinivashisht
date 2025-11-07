@@ -8,9 +8,11 @@
 
 .list {
   position: relative;
-  width: min(1200px, 94vw);
+  width: 100%;
+  max-width: 1100px;
   height: auto;
   min-height: 420px;
+  margin: 0 auto;
 }
 
 .itemWrapper {
@@ -21,6 +23,7 @@
   top: 0;
   left: 0;
   transition: filter 0.3s ease;
+  box-sizing: border-box;
 }
 
 .itemWrapper:hover {

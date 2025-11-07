@@ -14,37 +14,45 @@ const cardData = [
     color: '#12021f',
     title: 'Cinematic Glam',
     description: 'Metallic lids and velvet liners captured under studio lights.',
-    label: 'Editorial'
+    label: 'Editorial',
+    image: '/hdimages/SendAnywhere_658944/42266852-c3f7-4255-8156-35d98f8fbcea.jpg'
   },
   {
     color: '#12021f',
     title: 'Whisper Bridal',
     description: 'Featherlight skin, soft shimmer, heirloom-inspired details.',
-    label: 'Bridal'
+    label: 'Bridal',
+    image: '/hdimages/SendAnywhere_001278/2.jpg'
   },
   {
     color: '#12021f',
     title: 'Runway Reverie',
     description: 'Sculpted cheekbones and glass glow crafted backstage.',
-    label: 'Runway'
+    label: 'Runway',
+    backgroundPosition: '50% 10%',
+    backgroundSize: '115%',
+    image: '/hdimages/SendAnywhere_658944/455f600e-f0e5-4bc8-a04c-8c829f766063.jpg'
   },
   {
     color: '#12021f',
     title: 'Haldi Bloom',
     description: 'Saffron warmth and petal pigments made for daylight rituals.',
-    label: 'Ceremony'
+    label: 'Ceremony',
+    image: '/hdimages/SendAnywhere_658944/2cff726c-a94b-4b3b-bbdc-660279294891.jpg'
   },
   {
     color: '#12021f',
     title: 'Sangeet Spark',
     description: 'Prismatic glitter and neon liners dancing with spotlight beams.',
-    label: 'Soirée'
+    label: 'Soirée',
+    image: '/hdimages/SendAnywhere_658944/e545d684-6628-4f04-84dc-f92795524a76.jpg'
   },
   {
     color: '#12021f',
     title: 'Muse in Motion',
     description: 'Editorial storyboards shot across Milan, Dubai, and Delhi.',
-    label: 'Campaign'
+    label: 'Campaign',
+    image: '/hdimages/SendAnywhere_658944/f08f8ebb-f8c8-470e-b5e1-b93619154841.jpg'
   }
 ];
 
@@ -505,11 +513,21 @@ const MagicBento = ({
         <BentoCardGrid gridRef={gridRef}>
           {cardData.map((card, index) => {
             const baseClassName = `card ${textAutoHide ? 'card--text-autohide' : ''} ${enableBorderGlow ? 'card--border-glow' : ''}`;
+            // Use rich imagery inside each tile; gradient overlay lives in CSS to keep interactions crisp.
+            const backgroundStyles = card.image
+              ? {
+                  backgroundImage: `url(${card.image})`,
+                  backgroundSize: card.backgroundSize ?? 'cover',
+                  backgroundPosition: card.backgroundPosition ?? 'center',
+                  backgroundRepeat: 'no-repeat'
+                }
+              : {};
             const cardProps = {
               className: baseClassName,
               style: {
                 backgroundColor: card.color,
-                '--glow-color': glowColor
+                '--glow-color': glowColor,
+                ...backgroundStyles
               }
             };
 

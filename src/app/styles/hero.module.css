@@ -53,7 +53,7 @@
 
 .contentRight{
     position: relative;
-    padding: clamp(2.5rem, 6vw, 4.75rem);
+    padding: 80px 40px 40px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,13 +103,11 @@
     font-family: "Lato", sans-serif;
     font-size: clamp(1.05rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    max-width: 36ch;
     color: rgba(55, 65, 81, 0.8);
 }
 
 .signature{
     width: min(440px, 34vw);
-    margin-top: clamp(0.4rem, 1vw, 0.75rem);
 }
 
 .signatureSvg{
@@ -488,6 +486,7 @@
 @media (max-width: 1024px){
     .mainBannerContainer{
         grid-template-columns: 1fr;
+        grid-template-rows: 1fr 400px;
     }
 
     .featureRow{
@@ -527,4 +526,10 @@
     grid-template-columns: 1fr;
 
 }
+.copy{
+    display: none;
+}
+.signature{
+    width: 100%;
+    margin-top: 0;}
 }

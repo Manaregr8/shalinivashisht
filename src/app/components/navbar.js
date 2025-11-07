@@ -112,6 +112,11 @@ export default function Navbar() {
 								</Link>
 							</li>
 							<li className={styles.dropdownNavItem}>
+								<Link href="/work" onClick={closeDropdowns}>
+									Our Work
+								</Link>
+							</li>
+							<li className={styles.dropdownNavItem}>
 								<Link href="/contact" onClick={closeDropdowns}>
 									Contact
 								</Link>
@@ -130,6 +135,9 @@ export default function Navbar() {
 				</li>
 				<li className={styles.navItem}>
 					<Link href="/gallery">Gallery</Link>
+				</li>
+				<li className={styles.navItem}>
+					<Link href="/work">Our Work</Link>
 				</li>
 				<li className={styles.navItem}>
 					<Link href="/contact">Contact</Link>

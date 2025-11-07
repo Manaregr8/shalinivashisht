@@ -118,22 +118,28 @@ const Masonry = ({
     preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
   }, [items]);
 
-  const grid = useMemo(() => {
-    if (!width) return [];
+  const { grid: gridItems, totalHeight } = useMemo(() => {
+    if (!width) {
+      return { grid: [], totalHeight: 0 };
+    }
 
-    const colHeights = new Array(columns).fill(0);
+    const gutter = 24;
+    const colHeights = new Array(columns).fill(gutter);
     const columnWidth = width / columns;
-
-    return items.map((item) => {
+    const mapped = items.map((item) => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = columnWidth * col;
       const height = item.height / 2;
       const y = colHeights[col];
 
-      colHeights[col] += height;
+      colHeights[col] += height + gutter;
 
       return { ...item, x, y, w: columnWidth, h: height };
     });
+
+    const tallestColumn = Math.max(0, ...colHeights) - gutter;
+
+    return { grid: mapped, totalHeight: tallestColumn };
   }, [columns, items, width]);
 
   const hasMounted = useRef(false);
@@ -141,7 +147,7 @@ const Masonry = ({
   useLayoutEffect(() => {
     if (!imagesReady) return;
 
-    grid.forEach((item, index) => {
+  gridItems.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animationProps = {
         x: item.x,
@@ -184,7 +190,7 @@ const Masonry = ({
     });
 
     hasMounted.current = true;
-  }, [blurToFocus, duration, ease, getInitialPosition, grid, imagesReady, stagger]);
+  }, [blurToFocus, duration, ease, getInitialPosition, gridItems, imagesReady, stagger]);
 
   const handleMouseEnter = useCallback(
     (e, item) => {
@@ -237,8 +243,12 @@ const Masonry = ({
   );
 
   return (
-    <div ref={containerRef} className={`${styles.list} masonry-grid`}>
-      {grid.map((item) => (
+    <div
+      ref={containerRef}
+      className={`${styles.list} masonry-grid`}
+      style={{ height: Math.max(totalHeight + 24, 360) }}
+    >
+      {gridItems.map((item) => (
         <div
           key={item.id}
           data-key={item.id}

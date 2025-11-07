@@ -124,6 +124,7 @@
   display: flex;
   justify-content: center;
   margin-top: clamp(1.5rem, 3vw, 2.4rem);
+  overflow: hidden;
 }
 
 .notesGrid {
@@ -169,5 +170,9 @@
 
   .masonryBlock {
     max-width: none;
+  }
+
+  .masonryShell {
+    padding-inline: 0.25rem;
   }
 }

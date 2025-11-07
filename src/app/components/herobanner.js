@@ -14,21 +14,21 @@ import Footer from './footer';
 const slides = [
     {
         id: 'bridal-luxe',
-        src: '/hdimages/SendAnywhere_658944/42266852-c3f7-4255-8156-35d98f8fbcea.jpg',
+        src: '/hdimages/SendAnywhere_658944/78f490a6-9754-4235-881f-82bf76b04e7c.jpg',
         alt: 'Couture bridal glow styled by Shalini Vashisht for a pheras ceremony.',
-        objectPosition: '50% 30%',
+        objectPosition: '50% 20%',
     },
     {
         id: 'editorial-muse',
         src: '/hdimages/SendAnywhere_001278/5-2.jpg',
         alt: 'High-fashion campaign look with velvet liner and reflective skin.',
-        objectPosition: '50% 28%',
+        objectPosition: '50% 40%',
     },
     {
         id: 'destination-vows',
-        src: '/hdimages/SendAnywhere_658944/2cff726c-a94b-4b3b-bbdc-660279294891.jpg',
+        src: '/hdimages/SendAnywhere_658944/0498e69a-16ae-4165-ac99-67da33506b3a.jpg',
         alt: 'Destination wedding beauty captured in golden hour light.',
-        objectPosition: '50% 45%',
+        objectPosition: '50% 55%',
     },
 ];
 
@@ -39,7 +39,7 @@ const featureSections = [
         title: 'Custom rituals for pheran mornings, pheras, and receptions.',
         copy: 'Consultative trials, heirloom palette mapping, and on-location touch-ups ensure every vow is framed by luminous, skin-first glam that withstands ceremony to celebration.',
         image: {
-            src: '/hdimages/SendAnywhere_658944/78f490a6-9754-4235-881f-82bf76b04e7c.jpg',
+            src: '/hdimages/SendAnywhere_001278/4-1.jpg',
             alt: 'Shalini perfecting a couture bridal look before the pheras.',
             objectPosition: '50% 30%',
         },
@@ -51,9 +51,9 @@ const featureSections = [
         title: 'Runway, campaign, and cover-ready precision.',
         copy: 'Sculpted lighting, tone-perfect pigments, and backstage leadership translate creative decks into award-winning imagery for designers, fashion weeks, and luxury houses.',
         image: {
-            src: '/hdimages/SendAnywhere_658944/053ccbe7-b73a-45de-98d3-12a223e3f270.jpg',
+            src: '/hdimages/SendAnywhere_658944/c435e75e-13cc-48f8-944d-8c70511c53ac.jpg',
             alt: 'Editorial muse on-set with sculpted glam direction.',
-            objectPosition: '50% 35%',
+            objectPosition: '50% 15%',
         },
         align: 'left',
     },
@@ -125,25 +125,10 @@ const HeroBanner = () => {
                     </Swiper>
 
                     <aside className={styles.contentRight}>
-                        <p className={styles.eyebrow}>Luxury makeup atelier</p>
-                        <h1 className={styles.heading}>Couture beauty, handcrafted by Shalini Vashisht.</h1>
+                        <p className={styles.eyebrow}>Shalini Vashisht Extraordinaire</p>
+                        <h1 className={styles.heading}>Handcrafted by Shalini Vashisht.</h1>
                         <p className={styles.copy}>
-                            Senior makeup director Shalini Vashisht sculpts luminous, skin-loving looks for brides, celebrities, and
-                            campaigns worldwide. Each face chart blends skin science, ritual, and couture instinct so your glow feels
-                            timeless in every spotlight.
-                        </p>
-                        <p className={styles.copy}>
-                            From pheran dawn ceremonies to fashion-week finales, the atelier choreographs bespoke prep rituals, travel
-                            touch-up suites, and on-call artistry that keeps you photo ready from first look to final frame.
-                        </p>
-                        <div className={styles.ctaRow}>
-                            <Link href="/contact" className={`${styles.ctaButton} ${styles.primaryCta}`}>
-                                Book your consultation
-                            </Link>
-                            <Link href="#services" className={`${styles.ctaButton} ${styles.secondaryCta}`}>
-                                Explore signature services
-                            </Link>
-                        </div>
+                            Senior makeup director Shalini Vashisht sculpts luminous, skin-loving looks for brides, celebrities, and Models.</p>
                         <div className={styles.signature}>
                             <img src="/makeup.svg" alt="makeup signature" />
                         </div>

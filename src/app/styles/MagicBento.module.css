@@ -76,6 +76,21 @@
   --glow-radius: 200px;
 }
 
+.magicBentoContent :global(.card::before) {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 0, 18, 0.4) 0%, rgba(5, 0, 15, 0.78) 100%);
+  opacity: var(--card-overlay-opacity, 0.58);
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.magicBentoContent :global(.card:hover::before) {
+  opacity: var(--card-overlay-hover-opacity, 0.48);
+}
+
 .magicBentoContent :global(.card:hover) {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -86,6 +101,7 @@
   display: flex;
   position: relative;
   color: var(--white);
+  z-index: 2;
 }
 
 .magicBentoContent :global(.card__header) {
