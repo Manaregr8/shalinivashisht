@@ -1,103 +1,97 @@
 "use client";
-
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/navbar.module.css';
 
-const navLinks = [
-	{ label: 'About', href: '#about' },
-	{ label: 'Services', href: '#services' },
-	{ label: 'Gallery', href: '#gallery' },
-	{ label: 'Experiences', href: '#experiences' },
-	{ label: 'Contact', href: '#book' },
-];
+export default function Navbar() {
+	const [isSocialDropdownOpen, setIsSocialDropdownOpen] = useState(false);
+	const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
 
-const Navbar = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const [isScrolled, setIsScrolled] = useState(false);
+	const toggleSocialDropdown = () => {
+		setIsSocialDropdownOpen(!isSocialDropdownOpen);
+		setIsMenuDropdownOpen(false); // Close menu dropdown when social opens
+	};
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 24);
-		};
+	const toggleMenuDropdown = () => {
+		setIsMenuDropdownOpen(!isMenuDropdownOpen);
+		setIsSocialDropdownOpen(false); // Close social dropdown when menu opens
+	};
 
-		window.addEventListener('scroll', handleScroll, { passive: true });
-		handleScroll();
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
-
-	useEffect(() => {
-		if (!isMenuOpen) return;
-
-		const closeOnRoute = () => setIsMenuOpen(false);
-		window.addEventListener('resize', closeOnRoute);
-		return () => window.removeEventListener('resize', closeOnRoute);
-	}, [isMenuOpen]);
-
-	const handleLinkClick = () => {
-		setIsMenuOpen(false);
+	const closeBothDropdowns = () => {
+		setIsSocialDropdownOpen(false);
+		setIsMenuDropdownOpen(false);
 	};
 
 	return (
-		<header className={`${styles.wrapper} ${isScrolled ? styles.scrolled : ''}`}>
-			<div className={styles.inner}>
-				<Link href="/" className={styles.brand}>
-					<img src="/MainLogo.png" alt="Shalini Vashisht Experiences" />
-					<span className={styles.brandText}>
-						<span>Shalini</span>
-						<span>Vashisht Experiences</span>
-					</span>
-				</Link>
-
-				<nav className={styles.nav}>
-					{navLinks.map((link) => (
-						<Link key={link.label} href={link.href} onClick={handleLinkClick}>
-							{link.label}
-						</Link>
-					))}
-				</nav>
-
-				<div className={styles.ctaGroup}>
-					<a className={styles.callButton} href="tel:+919876543210">
-						Call Studio
-					</a>
-				</div>
-
-				<button
-					type="button"
-					aria-expanded={isMenuOpen}
-					aria-label="Toggle navigation"
-					className={`${styles.menuToggle} ${isMenuOpen ? styles.menuActive : ''}`}
-					onClick={() => setIsMenuOpen((prev) => !prev)}
-				>
-					<span />
-					<span />
-					<span />
-				</button>
-
-				<div className={styles.glisten} />
+		<nav className={styles.navbar} aria-label="Main navigation">
+			{/* Social Icon with Dropdown */}
+			<div className={styles.dropdownContainer}>
+				<img 
+					src='/social.svg' 
+					alt="Socials Icon" 
+					className={`${styles.socialS} ${styles.clickable}`}
+					onClick={toggleSocialDropdown}
+				/>
+				
+				{/* Social Dropdown */}
+				{isSocialDropdownOpen && (
+					<div className={`${styles.dropdown} ${styles.socialDropdown}`}>
+						<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+							<img src="/facebook.svg" alt="Facebook" className={styles.socialIcon} />
+						</a>
+						<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+							<img src="/instagram.svg" alt="Instagram" className={styles.socialIcon} />
+						</a>
+						<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+							<img src="/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
+						</a>
+						<a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+							<img src="/x.png" alt="Twitter" className={styles.socialIcon} style={{padding:'2px'}}/>
+						</a>
+					</div>
+				)}
 			</div>
 
-			<div
-				className={`${styles.mobilePanel} ${isMenuOpen ? styles.panelVisible : ''}`}
-				aria-hidden={!isMenuOpen}
-			>
-				<nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
-					{navLinks.map((link) => (
-						<Link key={link.label} href={link.href} onClick={handleLinkClick}>
-							{link.label}
-						</Link>
-					))}
-				</nav>
-				<a className={styles.panelCta} href="mailto:hello@shalinivashisht.com">
-					Email Studio
-				</a>
+			<img className={styles.logo} src="/Shalini Mam Logo (N).png" alt="Site Logo" />
+			
+			{/* Menu Icon with Dropdown */}
+			<div className={styles.dropdownContainer}>
+				<img 
+					src='/menu.svg' 
+					alt="Menu Icon" 
+					className={`${styles.socialS} ${styles.clickable}`}
+					onClick={toggleMenuDropdown}
+				/>
+				
+				{/* Menu Dropdown */}
+				{isMenuDropdownOpen && (
+					<div className={`${styles.dropdown} ${styles.menuDropdown}`}>
+						<ul className={styles.dropdownNavList}>
+							<li className={styles.dropdownNavItem}>
+								<Link href="/" onClick={closeBothDropdowns}>Home</Link>
+							</li>
+							<li className={styles.dropdownNavItem}>
+								<Link href="/about" onClick={closeBothDropdowns}>About</Link>
+							</li>
+							<li className={styles.dropdownNavItem}>
+								<Link href="/gallery" onClick={closeBothDropdowns}>Gallery</Link>
+							</li>
+							<li className={styles.dropdownNavItem}>
+								<Link href="/contact" onClick={closeBothDropdowns}>Contact</Link>
+							</li>
+						</ul>
+					</div>
+				)}
 			</div>
-		</header>
+			
+			{/* Hidden original nav list */}
+			<ul className={styles.navList}>
+				<li className={styles.navItem}><Link href="/">Home</Link></li>
+				<li className={styles.navItem}><Link href="/about">About</Link></li>
+				<li className={styles.navItem}><Link href="/gallery">Gallery</Link></li>
+				<li className={styles.navItem}><Link href="/contact">Contact</Link></li>
+			</ul>
+			
+		</nav>
 	);
-};
-
-export default Navbar;
+}

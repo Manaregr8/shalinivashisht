@@ -10,57 +10,62 @@ import styles from '../styles/hero.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Footer from './footer';
-import Navbar from './navbar';
 
 const slides = [
     {
-        id: 'aurora',
-        src: '/pexels-christian-diokno-1666462-3260852.jpg',
-        alt: 'Neon-lit modern interior with futuristic ambience.',
+        id: 'bridal-luxe',
+        src: '/hdimages/SendAnywhere_658944/42266852-c3f7-4255-8156-35d98f8fbcea.jpg',
+        alt: 'Couture bridal glow styled by Shalini Vashisht for a pheras ceremony.',
+        objectPosition: '50% 30%',
     },
     {
-        id: 'atelier',
-        src: '/pexels-olenagoldman-1021693.jpg',
-        alt: 'Soft daylight shining into a lounge interior.',
+        id: 'editorial-muse',
+        src: '/hdimages/SendAnywhere_001278/5-2.jpg',
+        alt: 'High-fashion campaign look with velvet liner and reflective skin.',
+        objectPosition: '50% 30%',
     },
     {
-        id: 'soundform',
-        src: '/pexels-pixabay-247322.jpg',
-        alt: 'Minimalist living room setup with artistic decor.',
+        id: 'destination-vows',
+        src: '/hdimages/SendAnywhere_658944/2cff726c-a94b-4b3b-bbdc-660279294891.jpg',
+        alt: 'Destination wedding beauty captured in golden hour light.',
+        objectPosition: '50% 30%',
     },
 ];
 
 const featureSections = [
     {
-        id: 'bridal-elegance',
-        eyebrow: 'Bridal Elegance',
-        title: 'Couture bridal looks that radiate on camera and IRL.',
-        copy: 'Soft-focus complexions, weightless veils of shimmer, and bespoke palettes tailored for the aisle. Shalini crafts luminous stories for every pheran, lehenga, and gown.',
+        id: 'bridal-couture',
+        eyebrow: 'Bridal Couture',
+        title: 'Custom rituals for pheran mornings, pheras, and receptions.',
+        copy: 'Consultative trials, heirloom palette mapping, and on-location touch-ups ensure every vow is framed by luminous, skin-first glam that withstands ceremony to celebration.',
         image: {
-            src: '/pexels-olenagoldman-1021693.jpg',
-            alt: 'Bride having makeup applied with soft blush tones.',
+            src: '/hdimages/SendAnywhere_658944/78f490a6-9754-4235-881f-82bf76b04e7c.jpg',
+            alt: 'Shalini perfecting a couture bridal look before the pheras.',
+            objectPosition: '50% 30%',
         },
         align: 'right',
     },
     {
-        id: 'editorial-finish',
-        eyebrow: 'Editorial Finish',
-        title: 'Runway precision for lookbooks, campaigns, and couture.',
-        copy: 'From glossy lids to velvet matte lips, each stroke is purpose-built for high definition lighting and bold creative direction.',
+        id: 'editorial-direction',
+        eyebrow: 'Editorial Direction',
+        title: 'Runway, campaign, and cover-ready precision.',
+        copy: 'Sculpted lighting, tone-perfect pigments, and backstage leadership translate creative decks into award-winning imagery for designers, fashion weeks, and luxury houses.',
         image: {
-            src: '/pexels-christian-diokno-1666462-3260852.jpg',
-            alt: 'Model with dramatic lighting showcasing editorial makeup.',
+            src: '/hdimages/SendAnywhere_658944/053ccbe7-b73a-45de-98d3-12a223e3f270.jpg',
+            alt: 'Editorial muse on-set with sculpted glam direction.',
+            objectPosition: '50% 10%',
         },
         align: 'left',
     },
     {
-        id: 'occasion-glow',
-        eyebrow: 'Occasion Glow',
-        title: 'Statement shimmer for soirées, sangeets, and celebrations.',
-        copy: 'Signature highlights, precise eye definition, and custom lip alchemy keep you camera-ready from first toast to final dance.',
+        id: 'airbrush-longwear',
+        eyebrow: 'Airbrush + HD',
+        title: 'Feather-light coverage engineered for climate and camera.',
+        copy: 'Advanced airbrush layering, cryo-prep, and humidity-resistant sealing keep complexions glassy and comfortable through flash photography, spotlights, and destination weather.',
         image: {
-            src: '/pexels-pixabay-247322.jpg',
-            alt: 'Close-up of glamorous evening makeup look.',
+            src: '/hdimages/SendAnywhere_001278/6-2.jpg',
+            alt: 'Airbrush complexion being detailed for a tropical celebration.',
+            objectPosition: '50% 32%',
         },
         align: 'right',
     },
@@ -98,7 +103,6 @@ const HeroBanner = () => {
                     rel="stylesheet"
                 />
             </Head>
-            <Navbar/>
             <main className={styles.main}>
                 <div className={styles.mainBannerContainer}>
                     <Swiper
@@ -110,14 +114,22 @@ const HeroBanner = () => {
                     >
                         {slides.map((slide) => (
                             <SwiperSlide key={slide.id} className={styles.swiperSlide}>
-                                <img src={slide.src} alt={slide.alt} className={styles.swiperImage} />
+                                <img
+                                    src={slide.src}
+                                    alt={slide.alt}
+                                    className={styles.swiperImage}
+                                    style={{ objectPosition: slide.objectPosition || '50% 50%' }}
+                                />
                             </SwiperSlide>
                         ))}
                     </Swiper>
 
                     <aside className={styles.contentRight}>
-                        <p className={styles.eyebrow}>Shalini Vashisht artistry</p>
-                        <h1 className={styles.heading}>Beauty narratives, painted by hand.</h1>
+                        <p className={styles.eyebrow}>Luxury makeup atelier</p>
+                        <h1 className={styles.heading}>Handcrafted by Shalini Vashisht.</h1>
+                        <p className={styles.copy}>
+                            Senior artist Shalini Vashisht sculpts luminous, skin-loving looks for brides, celebrities, and campaigns worldwide.
+                        </p>
                         <div className={styles.signature}>
                             <img src="/makeup.svg" alt="makeup signature" />
                         </div>
@@ -126,11 +138,10 @@ const HeroBanner = () => {
                     <div className={styles.absoluteStyle}>
                         <img src="/sve.svg" alt="SVE typography" />
                     </div>
-
-                    <img className={styles.logo} src="/MainLogo.png" alt="SVE" />
                 </div>
             </main>
             <section
+                id="services"
                 className={styles.featureCollection}
                 style={{
                     background:
@@ -184,7 +195,11 @@ const HeroBanner = () => {
                                             'radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.35), transparent 70%)'
                                     }}
                                 />
-                                <img src={section.image.src} alt={section.image.alt} />
+                                <img
+                                    src={section.image.src}
+                                    alt={section.image.alt}
+                                    style={{ objectPosition: section.image.objectPosition || '50% 50%' }}
+                                />
                             </div>
                         </div>
                     );

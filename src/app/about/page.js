@@ -3,45 +3,93 @@ import Link from 'next/link';
 import styles from '../styles/about.module.css';
 import Footer from '../components/footer';
 
-const timeline = [
+const values = [
   {
-    year: '2010',
-    title: 'Artist Residency',
-    description:
-      'Refined techniques at the London College of Fashion while assisting editorial teams for global glossies.',
+    heading: 'Skin-first rituals',
+    copy: 'Medical-grade prepping techniques ensure every base stays luminous yet breathable through pheras, flash photography, and after-parties.',
   },
   {
-    year: '2014',
-    title: 'SVE Studio Launch',
-    description:
-      'Opened the first Shalini Vashisht Experiences atelier in New Delhi with a focus on customized bridal artistry.',
+    heading: 'Tailored colour stories',
+    copy: 'Pigments and textures are custom blended to match undertones, couture fabrics, and jewellery metals while respecting cultural aesthetics.',
   },
   {
-    year: '2018',
-    title: 'Fashion Weeks',
-    description:
-      'Led backstage beauty direction for couture showcases across Mumbai, Dubai, and Milan.',
+    heading: 'Precision collective',
+    copy: 'Artists, hair directors, and dermal specialists are trained under Shalini to deliver couture detail consistently across multi-day events.',
   },
   {
-    year: '2023',
-    title: 'Global Destination Collective',
-    description:
-      'Built a concierge team delivering on-location transformations from Santorini to Seychelles.',
+    heading: 'Conscious indulgence',
+    copy: 'Cruelty-free kits, refill systems, and hospital-grade hygiene protocols keep luxury experiences considered and responsible.',
   },
 ];
 
-const values = [
+const timeline = [
   {
-    heading: 'Intentional Glamour',
-    copy: 'Every canvas begins with skin health, balanced tones, and a bespoke palette mapped to lighting, attire, and the moment.',
+    year: '2010',
+    title: 'Television Debut',
+    description:
+      'First national television appearance as lead makeup artist on a prime-time makeover series, introducing signature skin-first glam to millions.',
   },
   {
-    heading: 'Artistry + Tech',
-    copy: 'Color science, AI-enabled face charts, and precision airbrush tools ensure couture looks stay camera-ready for 18 hours.',
+    year: '2013',
+    title: 'SVE Studio Launch',
+    description:
+      'Opened the Shalini Vashisht Experiences atelier in New Delhi, offering concierge bridal artistry and bespoke complexion rituals.',
   },
   {
-    heading: 'Sustainable Luxury',
-    copy: 'Cruelty-free and refillable kits, responsibly sourced pigments, and mindful rituals keep the glow planet-positive.',
+    year: '2017',
+    title: 'Fashion Week Director',
+    description:
+      'Helmed backstage beauty direction for couture houses at Lakmé Fashion Week, FDCI showcases, and international designer tours.',
+  },
+  {
+    year: '2022',
+    title: 'Global Destination Suite',
+    description:
+      'Expanded the collective to serve destination weddings from Santorini to Seychelles with climate-adaptive airbrush and HD artistry.',
+  },
+];
+
+const services = [
+  {
+    heading: 'Bridal Couture Makeup',
+    copy: 'Multi-event journeys with preview trials, ensemble-matched palettes, ritual-friendly touch-ups, and luxury skin prep for pheras, sangeets, and receptions.',
+  },
+  {
+    heading: 'Party & Occasion Glam',
+    copy: 'Statement-ready looks for cocktails, award nights, anniversaries, and social soirées that balance longevity with effortless comfort.',
+  },
+  {
+    heading: 'Airbrush & HD Complexion',
+    copy: 'Feather-light coverage engineered to resist humidity, flash photography, and marathon celebrations while keeping skin breathable.',
+  },
+  {
+    heading: 'Editorial & Photoshoots',
+    copy: 'Concept-to-camera beauty direction for campaigns, fashion lookbooks, and brand launches with on-set continuity support.',
+  },
+  {
+    heading: 'Celebrity & Media Glam',
+    copy: 'Red-carpet, press junket, and television-ready makeup refined for high-definition broadcast and paparazzi flash.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      'Shalini translated my bridal Pinterest board into a couture reality that survived 14 hours of ceremonies and rain. Every photo still feels luminous.',
+    name: 'Rhea Malhotra',
+    role: 'Destination Bride · Jaipur',
+  },
+  {
+    quote:
+      'Her command backstage is unmatched—three shows, zero delays, and the most flawless complexions under runway spotlights.',
+    name: 'Arjun Bedi',
+    role: 'Fashion Director · Lakmé Fashion Week',
+  },
+  {
+    quote:
+      'TV lights can be unforgiving, yet Shalini’s HD finish kept me photo-ready through live interviews and flash photography.',
+    name: 'Meera Kapoor',
+    role: 'Actor & Host',
   },
 ];
 
@@ -57,56 +105,64 @@ export default function AboutPage() {
           rel="stylesheet"
         />
       </Head>
-      <main className={styles.page}>
+  <main id="about" className={styles.page}>
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
             <span className={styles.heroEyebrow}>Meet the artist</span>
-            <h1 className={styles.heroHeading}>The story behind the signature glow.</h1>
+            <h1 className={styles.heroHeading}>The artistry behind India’s favourite glow.</h1>
             <p className={styles.heroBody}>
-              For over a decade, Shalini Vashisht has transformed bridal mornings, runway finales, and cinematic frames with a
-              refined balance of artistry and technology. The SVE collective is rooted in intentional glamour—where every detail
-              narrates who you are.
+              Shalini Vashisht is a senior makeup director celebrated for fusing skin science with couture instinct. Featured across
+              Vogue India, Harper’s Bazaar Bride, and prime-time television, her signature is a refined, natural glam that travels
+              seamlessly from pheran rituals to red carpets. Every face chart honours heritage, lighting, attire, and the moment you
+              want to remember forever.
             </p>
             <div className={styles.heroActions}>
-              <Link href="#vision" className={styles.primaryLink}>
-                Explore the craft
+              <Link href="#services" className={styles.primaryLink}>
+                Explore signature services
               </Link>
               <Link href="/contact" className={styles.secondaryLink}>
-                Collaborate with us
+                Book a consultation
               </Link>
             </div>
             <div className={styles.heroStats}>
               <div>
-                <span>11+</span>
-                <p>Years curating couture beauty journeys</p>
+                <span>15+</span>
+                <p>Years designing couture beauty journeys worldwide</p>
               </div>
               <div>
-                <span>420+</span>
-                <p>Destination celebrations and shoots</p>
+                <span>520+</span>
+                <p>Destination celebrations, shoots, and editorial sets</p>
               </div>
               <div>
-                <span>65</span>
-                <p>Fashion week showcases globally</p>
+                <span>70</span>
+                <p>Fashion week showcases and celebrity press tours</p>
               </div>
             </div>
           </div>
           <div className={styles.heroMedia}>
             <div className={styles.heroMediaGlow} />
-            <img src="/pexels-olenagoldman-1021693.jpg" alt="Makeup artist perfecting bridal look" />
+            <div className={styles.heroMediaFrame}>
+              <img
+                src="/hdimages/SendAnywhere_658944/89556a7a-ea01-48cf-b1ef-299718eb7481.jpg"
+                alt="Shalini Vashisht perfecting a bridal glow"
+                style={{ objectPosition: '30% 35%' }}
+              />
+            </div>
             <div className={styles.heroBadge}>
               <span>Trusted Artistry</span>
-              <strong>Since 2014</strong>
+              <strong>Since 2010</strong>
             </div>
           </div>
         </section>
 
         <section id="vision" className={styles.valuesSection}>
           <header>
-            <span className={styles.sectionEyebrow}>Vision & Values</span>
-            <h2>What guides every transformation.</h2>
+            <span className={styles.sectionEyebrow}>Artistic Philosophy</span>
+            <h2>Makeup that feels like couture, looks like skin.</h2>
             <p>
-              The SVE atelier blends couture intuition with technical mastery. Every look is a collaboration anchored in your story,
-              guided by sustainable luxury, and engineered for longevity.
+              Every booking begins with a skin diagnostic, lighting study, and wardrobe review so the final look moves effortlessly
+              with you. The SVE collective merges colour theory with sensorial rituals to create finishes that endure celebrations,
+              cameras, and climates.
             </p>
           </header>
           <div className={styles.valuesGrid}>
@@ -119,10 +175,35 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className={styles.timelineSection}>
+  <section id="services" className={styles.servicesSection}>
+          <header>
+            <span className={styles.sectionEyebrow}>Signature Services</span>
+            <h2>Bespoke beauty journeys engineered for your itinerary.</h2>
+            <p>
+              From multi-day bridal couture to red-carpet press tours, each service tier includes preview calls, custom skincare
+              prescriptions, and on-location touch-up rituals so you stay camera ready at every milestone.
+            </p>
+          </header>
+          <div className={styles.servicesGrid}>
+            {services.map((service) => (
+              <article key={service.heading} className={styles.serviceCard}>
+                <h3>{service.heading}</h3>
+                <p>{service.copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className={styles.servicesCta}>
+            <Link href="/contact" className={styles.primaryLink}>
+              Reserve your date
+            </Link>
+            <p>Concierge bookings are available up to twelve months in advance worldwide.</p>
+          </div>
+        </section>
+
+        <section id="milestones" className={styles.timelineSection}>
           <div className={styles.timelineHeader}>
             <span className={styles.sectionEyebrow}>Milestones</span>
-            <h2>A timeline of glow-inducing moments.</h2>
+            <h2>A decade of celebrated transformations.</h2>
           </div>
           <div className={styles.timelineRail}>
             {timeline.map((item) => (
@@ -137,25 +218,58 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className={styles.teamSection}>
+        <section className={styles.testimonialsSection}>
+          <header>
+            <span className={styles.sectionEyebrow}>Client Praise</span>
+            <h2>Confidence that lasts from first look to final frame.</h2>
+            <p>
+              Brides, fashion directors, and on-air talent trust Shalini and the collective to deliver artistry that feels personal,
+              luxurious, and effortless under every spotlight.
+            </p>
+          </header>
+          <div className={styles.testimonialGrid}>
+            {testimonials.map((testimonial) => (
+              <article key={testimonial.name} className={styles.testimonialCard}>
+                <p className={styles.testimonialQuote}>
+                  <span>&ldquo;</span>
+                  {testimonial.quote}
+                  <span>&rdquo;</span>
+                </p>
+                <div className={styles.testimonialMeta}>
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.role}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="collective" className={styles.teamSection}>
           <div className={styles.teamCopy}>
             <span className={styles.sectionEyebrow}>The Collective</span>
             <h2>Concierge artists, hair architects, and skin therapists.</h2>
             <p>
-              We partner with award-winning hair stylists, dermal experts, and aura readers to craft holistic experiences. Each
-              blueprint includes prep rituals, travel-ready touch-up kits, and guidance calls that allow you to ease into the day.
+              The SVE unit travels with you for every celebration, complete with hair maestros, dermal therapists, and logistics
+              producers who choreograph your schedule. Expect bespoke prep menus, couture kit sanitisation, and touch-up blueprints
+              for each ceremony and frame.
             </p>
             <Link href="/contact" className={styles.primaryLink}>
-              Design your experience
+              Curate your collective
             </Link>
           </div>
           <div className={styles.teamMedia}>
             <div className={styles.teamMediaGlow} />
-            <img src="/pexels-christian-diokno-1666462-3260852.jpg" alt="Artists collaborating backstage" />
+            <div className={styles.teamMediaFrame}>
+              <img
+                src="/hdimages/SendAnywhere_001278/7-1.jpg"
+                alt="SVE collective collaborating backstage"
+                style={{ objectPosition: '50% 40%' }}
+              />
+            </div>
           </div>
         </section>
-      </main>
-      <Footer/>
+  </main>
+  <Footer />
     </>
   );
 }

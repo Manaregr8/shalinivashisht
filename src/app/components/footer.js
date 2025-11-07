@@ -43,7 +43,7 @@ const Footer = () =>{
                 >
                     <div className={styles.footerBrand} style={{ color: '#e2e8f0' }}>
                         <img
-                            src="/MainLogo.png"
+                            src="/Shalini Mam Logo (N).png"
                             alt="SVE"
                             className={styles.footerLogo}
                             style={{ filter: 'drop-shadow(0 14px 40px rgba(15, 23, 42, 0.75))' }}

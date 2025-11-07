@@ -22,40 +22,40 @@ const galleryNotes = [
 
 const masonryItems = [
   {
-    id: '1',
-    img: 'https://picsum.photos/id/1015/600/900?grayscale',
-    url: 'https://example.com/one',
-    height: 400,
+    id: 'bridal-portrait',
+    img: '/hdimages/SendAnywhere_658944/0498e69a-16ae-4165-ac99-67da33506b3a.jpg',
+    url: '/contact',
+    height: 520,
   },
   {
-    id: '2',
-    img: 'https://picsum.photos/id/1011/600/750?grayscale',
-    url: 'https://example.com/two',
-    height: 250,
-  },
-  {
-    id: '3',
-    img: 'https://picsum.photos/id/1020/600/800?grayscale',
-    url: 'https://example.com/three',
-    height: 600,
-  },
-  {
-    id: '4',
-    img: 'https://picsum.photos/id/1049/600/720?grayscale',
-    url: 'https://example.com/four',
+    id: 'sangeet-glow',
+    img: '/hdimages/SendAnywhere_001278/4-1.jpg',
+    url: '/contact',
     height: 360,
   },
   {
-    id: '5',
-    img: 'https://picsum.photos/id/1050/600/680?grayscale',
-    url: 'https://example.com/five',
-    height: 440,
+    id: 'couture-campaign',
+    img: '/hdimages/SendAnywhere_658944/c435e75e-13cc-48f8-944d-8c70511c53ac.jpg',
+    url: '/contact',
+    height: 600,
   },
   {
-    id: '6',
-    img: 'https://picsum.photos/id/1062/600/760?grayscale',
-    url: 'https://example.com/six',
-    height: 520,
+    id: 'haldi-bloom',
+    img: '/hdimages/SendAnywhere_658944/2e9f16a3-a02c-47fb-a616-9242034abcbe.jpg',
+    url: '/contact',
+    height: 420,
+  },
+  {
+    id: 'veil-moment',
+    img: '/hdimages/SendAnywhere_001278/3-1.jpg',
+    url: '/contact',
+    height: 480,
+  },
+  {
+    id: 'reception-glam',
+    img: '/hdimages/SendAnywhere_658944/e8fc0e15-c936-4756-8555-5aea1409863c.jpg',
+    url: '/contact',
+    height: 540,
   }
 ];
 

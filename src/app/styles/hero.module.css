@@ -53,7 +53,7 @@
 
 .contentRight{
     position: relative;
-    padding: clamp(2.5rem, 6vw, 4.75rem);
+    padding: 100px 40px 40px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,13 +103,12 @@
     font-family: "Lato", sans-serif;
     font-size: clamp(1.05rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    max-width: 36ch;
     color: rgba(55, 65, 81, 0.8);
 }
 
 .signature{
     width: min(440px, 34vw);
-    margin-top: clamp(0.4rem, 1vw, 0.75rem);
+    margin-top: -30px;
 }
 
 .signatureSvg{
@@ -177,6 +176,21 @@
     flex-wrap: wrap;
     gap: clamp(0.75rem, 2vw, 1.25rem);
     margin-top: clamp(1rem, 2.4vw, 1.8rem);
+}
+
+.ctaButton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.9rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: clamp(0.68rem, 0.9vw, 0.8rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 
