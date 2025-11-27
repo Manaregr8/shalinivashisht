@@ -122,12 +122,6 @@ const mediaItems = [
 
 const fashionItems = [
   {
-    id: 'fashion-05',
-    img: '/new%20pics%20shalini%20mam/fashion/05.jpg',
-    url: '/contact',
-    height: 500
-  },
-  {
     id: 'fashion-16',
     img: '/new%20pics%20shalini%20mam/fashion/16.jpg',
     url: '/contact',

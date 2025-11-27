@@ -59,6 +59,17 @@ const Footer = () =>{
                             <a href="mailto:hello@shalinivashisht.com" style={{ color: '#facc15' }}>
                                 hello@shalinivashisht.com
                             </a>
+                            <div style={{ marginTop: '8px', display: 'flex', gap: '12px' }}>
+                                <a href="https://www.facebook.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/facebook.svg" alt="Facebook" style={{ height: '28px', width: '28px' }} />
+                                </a>
+                                <a href="https://www.instagram.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer">
+                                    <img src="/instagram.svg" alt="Instagram" style={{ height: '28px', width: '28px' }} />
+                                </a>
+                                <a href="https://youtube.com/@shalinivasisht334?si=F4zN_PUvrVj7ZGBY" target="_blank" rel="noopener noreferrer">
+                                    <img src="/youtube.svg" alt="YouTube" style={{ height: '28px', width: '28px' }} />
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.footerLinksWrap} style={{ color: '#e2e8f0' }}>

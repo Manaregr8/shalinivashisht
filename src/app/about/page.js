@@ -28,6 +28,12 @@ const values = [
 
 const timeline = [
   {
+    year: '2000',
+    title: 'Industry Debut',
+    description:
+      'Began professional makeup artistry, building a reputation for skin-first glam and couture detail across weddings, fashion, and media.',
+  },
+  {
     year: '2010',
     title: 'Television Debut',
     description:
@@ -70,10 +76,6 @@ const services = [
     heading: 'Editorial & Photoshoots',
     copy: 'Concept-to-camera beauty direction for campaigns, fashion lookbooks, and brand launches with on-set continuity support.',
   },
-  {
-    heading: 'Celebrity & Media Glam',
-    copy: 'Red-carpet, press junket, and television-ready makeup refined for high-definition broadcast and paparazzi flash.',
-  },
 ];
 
 const testimonials = [
@@ -86,7 +88,7 @@ const testimonials = [
   {
     quote:
       'Her command backstage is unmatched—three shows, zero delays, and the most flawless complexions under runway spotlights.',
-    name: 'Arjun Bedi',
+    name: 'Aarushi Bedi',
     role: 'Fashion Director · Lakmé Fashion Week',
   },
   {
@@ -132,7 +134,7 @@ export default function AboutPage() {
             </div>
             <div className={styles.heroStats}>
               <div>
-                <span>15+</span>
+                <span>25+</span>
                 <p>Years designing couture beauty journeys worldwide</p>
               </div>
               <div>
@@ -156,7 +158,7 @@ export default function AboutPage() {
             </div>
             <div className={styles.heroBadge}>
               <span>Trusted Artistry</span>
-              <strong>Since 2010</strong>
+              <strong>Since 2000</strong>
             </div>
           </div>
         </section>
@@ -209,7 +211,7 @@ export default function AboutPage() {
         <section id="milestones" className={styles.timelineSection}>
           <div className={styles.timelineHeader}>
             <span className={styles.sectionEyebrow}>Milestones</span>
-            <h2>A decade of celebrated transformations.</h2>
+            <h2>Over two decades of celebrated transformations.</h2>
           </div>
           <div className={styles.timelineRail}>
             {timeline.map((item) => (

@@ -65,7 +65,7 @@ const featureSections = [
         title: 'Feather-light coverage engineered for climate and camera.',
         copy: 'Advanced airbrush layering, cryo-prep, and humidity-resistant sealing keep complexions glassy and comfortable through flash photography, spotlights, and destination weather.',
         image: {
-            src: '/hdimages/SendAnywhere_001278/6-2.jpg',
+            src: '/new pics shalini mam/new pics/DSC_8046 copy 2b (1).webp',
             alt: 'Airbrush complexion being detailed for a tropical celebration.',
             objectPosition: '50% 32%',
         },

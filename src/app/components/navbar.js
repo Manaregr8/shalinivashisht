@@ -67,13 +67,13 @@ export default function Navbar() {
 
 				{isSocialOpen && (
 					<div className={`${styles.dropdown} ${styles.socialDropdown}`}>
-						<a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+						<a href="https://www.facebook.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/facebook.svg" alt="Facebook" className={styles.socialIcon} />
 						</a>
-						<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+						<a href="https://www.instagram.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/instagram.svg" alt="Instagram" className={styles.socialIcon} />
 						</a>
-						<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink} >
+						<a href="https://youtube.com/@shalinivasisht334?si=F4zN_PUvrVj7ZGBY" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/youtube-music-svgrepo-com.svg" alt="YouTube" className={styles.socialIcon} />
 						</a>
 						{/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
