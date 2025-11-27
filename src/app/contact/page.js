@@ -118,7 +118,7 @@ export default function ContactPage() {
               </div>
               <p className={styles.formDisclaimer}>
                 By submitting, you agree to our{' '}
-                <a href="#privacy">privacy policy</a> and understand that availability is limited during peak wedding seasons.
+                <a href="/contact">privacy policy</a> and understand that availability is limited during peak wedding seasons.
               </p>
             </form>
           </div>

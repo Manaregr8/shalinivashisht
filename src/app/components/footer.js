@@ -5,19 +5,19 @@ const footerLinks = [
     {
         heading: 'Quick Links',
         items: [
-            { label: 'About Shalini', href: '#about' },
-            { label: 'Signature Services', href: '#services' },
-            { label: 'Portfolio', href: '#portfolio' },
-            { label: 'Book a Session', href: '#book' },
+            { label: 'About Shalini', href: '/about' },
+            { label: 'Signature Services', href: '/about#services' },
+            { label: 'Portfolio', href: '/gallery' },
+            { label: 'Book a Session', href: '/contact' },
         ],
     },
     {
         heading: 'Bridal Couture',
         items: [
-            { label: 'Haldi & Mehendi', href: '#haldi' },
-            { label: 'Wedding Day Glam', href: '#wedding' },
-            { label: 'Reception Looks', href: '#reception' },
-            { label: 'Destination Packages', href: '#destination' },
+            { label: 'Celebrity Work', href: '/work#celebrities' },
+            { label: 'Magazine Features', href: '/work#magazines' },
+            { label: 'Media Coverage', href: '/work#media' },
+            { label: 'Fashion Campaigns', href: '/work#fashion' },
         ],
     },
 ];
@@ -97,11 +97,11 @@ const Footer = () =>{
                 >
                     <span>© {new Date().getFullYear()} Shalini Vashisht Experiences. All rights reserved.</span>
                     <div className={styles.footerLegal} style={{ color: 'rgba(203, 213, 225, 0.7)' }}>
-                        <Link href="#privacy" style={{ color: '#facc15' }}>
+                        <Link href="/contact" style={{ color: '#facc15' }}>
                             Privacy Policy
                         </Link>
                         <span>·</span>
-                        <Link href="#terms" style={{ color: '#facc15' }}>
+                        <Link href="/contact" style={{ color: '#facc15' }}>
                             Terms
                         </Link>
                     </div>

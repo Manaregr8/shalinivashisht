@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import styles from '../styles/Masonry.module.css';
 
@@ -80,6 +81,7 @@ const Masonry = ({
 
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const getInitialPosition = useCallback(
     (item) => {
@@ -117,6 +119,26 @@ const Masonry = ({
   useEffect(() => {
     preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));
   }, [items]);
+
+  useEffect(() => {
+    // Prevent background scroll while the lightbox is open and support Escape to close.
+    if (!activeItem) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveItem(null);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeItem]);
 
   const { grid: gridItems, totalHeight } = useMemo(() => {
     if (!width) {
@@ -243,27 +265,55 @@ const Masonry = ({
   );
 
   return (
-    <div
-      ref={containerRef}
-      className={`${styles.list} masonry-grid`}
-      style={{ height: Math.max(totalHeight + 24, 360) }}
-    >
-      {gridItems.map((item) => (
-        <div
-          key={item.id}
-          data-key={item.id}
-          className={styles.itemWrapper}
-          onClick={() => window.open(item.url, '_blank', 'noopener')}
-          onMouseEnter={(event) => handleMouseEnter(event, item)}
-          onMouseLeave={(event) => handleMouseLeave(event, item)}
-        >
-          <div className={styles.itemImg} style={{ backgroundImage: `url(${item.img})` }}>
-            {colorShiftOnHover && <div className={styles.colorOverlay} />}
+    <>
+      <div
+        ref={containerRef}
+        className={`${styles.list} masonry-grid`}
+        style={{ height: Math.max(totalHeight + 24, 360) }}
+      >
+        {gridItems.map((item) => (
+          <div
+            key={item.id}
+            data-key={item.id}
+            className={styles.itemWrapper}
+            onClick={() => setActiveItem(item)}
+            onMouseEnter={(event) => handleMouseEnter(event, item)}
+            onMouseLeave={(event) => handleMouseLeave(event, item)}
+          >
+            <div className={styles.itemImg} style={{ backgroundImage: `url(${item.img})` }}>
+              {colorShiftOnHover && <div className={styles.colorOverlay} />}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+
+      <Lightbox item={activeItem} onClose={() => setActiveItem(null)} />
+    </>
   );
 };
 
 export default Masonry;
+
+function Lightbox({ item, onClose }) {
+  if (!item || typeof document === 'undefined') return null;
+
+  return createPortal(
+    (
+      <div
+        className={styles.lightboxOverlay}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Expanded gallery image"
+        onClick={onClose}
+      >
+        <div className={styles.lightboxContent} onClick={(event) => event.stopPropagation()}>
+          <button type="button" className={styles.lightboxClose} aria-label="Close image" onClick={onClose}>
+            ×
+          </button>
+          <img className={styles.lightboxImage} src={item.img} alt={item.alt || item.title || item.id} />
+        </div>
+      </div>
+    ),
+    document.body
+  );
+}

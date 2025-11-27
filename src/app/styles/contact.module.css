@@ -15,6 +15,7 @@
   gap: clamp(2rem, 4vw, 3.5rem);
   padding: clamp(3.5rem, 8vw, 5.5rem);
   align-items: center;
+  padding-top: 100px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 245, 248, 0.86));
   box-shadow: 0 45px 90px rgba(15, 23, 42, 0.14);
   overflow: hidden;
@@ -370,6 +371,10 @@
   .page {
     padding-bottom: 4rem;
   }
+  .hero {
+  padding-top: 100px;
+
+}
 }
 
 @media (max-width: 640px) {

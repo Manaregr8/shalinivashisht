@@ -1,7 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/about.module.css';
 import Footer from '../components/footer';
+import EnquiryModal from '../components/EnquiryModal';
 
 const values = [
   {
@@ -94,6 +98,8 @@ const testimonials = [
 ];
 
 export default function AboutPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <>
       <Head>
@@ -117,12 +123,12 @@ export default function AboutPage() {
               want to remember forever.
             </p>
             <div className={styles.heroActions}>
-              <Link href="#services" className={styles.primaryLink}>
+              <Link href="/about#services" className={styles.primaryLink}>
                 Explore signature services
               </Link>
-              <Link href="/contact" className={styles.secondaryLink}>
+              <button onClick={() => setIsModalOpen(true)} className={styles.secondaryLink}>
                 Book a consultation
-              </Link>
+              </button>
             </div>
             <div className={styles.heroStats}>
               <div>
@@ -193,9 +199,9 @@ export default function AboutPage() {
             ))}
           </div>
           <div className={styles.servicesCta}>
-            <Link href="/contact" className={styles.primaryLink}>
+            <button onClick={() => setIsModalOpen(true)} className={styles.primaryLink}>
               Reserve your date
-            </Link>
+            </button>
             <p>Concierge bookings are available up to twelve months in advance worldwide.</p>
           </div>
         </section>
@@ -253,9 +259,9 @@ export default function AboutPage() {
               producers who choreograph your schedule. Expect bespoke prep menus, couture kit sanitisation, and touch-up blueprints
               for each ceremony and frame.
             </p>
-            <Link href="/contact" className={styles.primaryLink}>
+            <button onClick={() => setIsModalOpen(true)} className={styles.primaryLink}>
               Curate your collective
-            </Link>
+            </button>
           </div>
           <div className={styles.teamMedia}>
             <div className={styles.teamMediaGlow} />
@@ -269,6 +275,7 @@ export default function AboutPage() {
           </div>
         </section>
   </main>
+  <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
   <Footer />
     </>
   );

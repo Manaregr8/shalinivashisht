@@ -211,7 +211,7 @@ export default function WorkPage() {
         </section>
 
         {workSections.map((section) => (
-          <section key={section.key} className={styles.section}>
+          <section key={section.key} id={section.key} className={styles.section}>
             <div className={styles.sectionHeader}>
               <div>
                 <span className={styles.sectionTag}>{section.tag}</span>

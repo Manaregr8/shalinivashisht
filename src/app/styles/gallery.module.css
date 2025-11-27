@@ -163,7 +163,9 @@
   .page {
     padding-inline: 1.4rem;
   }
-
+.page {
+padding-top: 100px;
+}
   .heroAccent {
     font-size: 0.78rem;
   }

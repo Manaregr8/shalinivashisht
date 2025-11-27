@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
 
 import Head from 'next/head';
@@ -10,6 +11,7 @@ import styles from '../styles/hero.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Footer from './footer';
+import EnquiryModal from './EnquiryModal';
 
 const slides = [
     {
@@ -93,6 +95,8 @@ const footerLinks = [
 ];
 
 const HeroBanner = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
     return (
         <>
             <Head>
@@ -175,16 +179,21 @@ const HeroBanner = () => {
                                 >
                                     {section.copy}
                                 </p>
-                                <Link
-                                    href="#book"
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
                                     className={styles.featureLink}
                                     style={{
                                         color: '#facc15',
-                                        borderBottom: '1px solid rgba(250, 204, 21, 0.5)'
+                                        borderBottom: '1px solid rgba(250, 204, 21, 0.5)',
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        padding: 0,
+                                        font: 'inherit'
                                     }}
                                 >
                                     Reserve a session
-                                </Link>
+                                </button>
                             </div>
                             <div className={styles.featureMedia} style={{ borderRadius: '1.5rem' }}>
                                 <div
@@ -204,6 +213,7 @@ const HeroBanner = () => {
                     );
                 })}
             </section>
+            <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             <Footer/>
         </>
     );

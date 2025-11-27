@@ -73,12 +73,15 @@ export default function Navbar() {
 						<a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/instagram.svg" alt="Instagram" className={styles.socialIcon} />
 						</a>
-						<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+						<a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink} >
+							<img src="/youtube-music-svgrepo-com.svg" alt="YouTube" className={styles.socialIcon} />
+						</a>
+						{/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
 						</a>
 						<a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
 							<img src="/x.png" alt="Twitter" className={styles.socialIcon} style={{ padding: '2px' }} />
-						</a>
+						</a> */}
 					</div>
 				)}
 			</div>
