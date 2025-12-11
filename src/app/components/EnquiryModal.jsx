@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/EnquiryModal.module.css';
 
 const EnquiryModal = ({ isOpen, onClose }) => {
+  const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setResult("");
     } else {
       document.body.style.overflow = '';
     }
@@ -26,11 +30,37 @@ const EnquiryModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    alert('Thank you for your enquiry! We will get back to you soon.');
-    onClose();
+    setIsSubmitting(true);
+    setResult("");
+    
+    const formData = new FormData(e.target);
+    formData.append("access_key", "651058f9-f1e2-4e94-968a-8bab901fc82d");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setResult("Thank you! We'll get back to you soon.");
+        e.target.reset();
+        setTimeout(() => {
+          onClose();
+          setResult("");
+        }, 2000);
+      } else {
+        setResult("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setResult("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,14 +122,14 @@ const EnquiryModal = ({ isOpen, onClose }) => {
             <span>Event Type</span>
             <select name="eventType">
               <option value="">Select event type</option>
-              <option value="wedding">Wedding</option>
-              <option value="reception">Reception</option>
-              <option value="haldi">Haldi & Mehendi</option>
-              <option value="sangeet">Sangeet</option>
-              <option value="fashion">Fashion Shoot</option>
-              <option value="editorial">Editorial</option>
-              <option value="celebrity">Celebrity Event</option>
-              <option value="other">Other</option>
+              <option value="Bridal">Bridal</option>
+              <option value="Reception">Reception</option>
+              <option value="Haldi">Haldi</option>
+              <option value="Mehendi">Mehendi</option>
+              <option value="Sangeet">Sangeet</option>
+              <option value="Cocktail">Cocktail</option>
+              <option value="Party">Party</option>
+              <option value="Other">Other</option>
             </select>
           </label>
 
@@ -112,15 +142,28 @@ const EnquiryModal = ({ isOpen, onClose }) => {
             />
           </label>
 
+          <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+          
           <div className={styles.formFooter}>
             <label className={styles.checkbox}>
               <input type="checkbox" name="newsletter" />
               <span>Keep me updated on exclusive workshops and new services</span>
             </label>
-            <button type="submit" className={styles.submitButton}>
-              Submit Enquiry
+            <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
             </button>
           </div>
+
+          {result && (
+            <p style={{ 
+              marginTop: '12px', 
+              textAlign: 'center', 
+              color: result.includes('Thank') ? '#10b981' : '#ef4444',
+              fontWeight: '500'
+            }}>
+              {result}
+            </p>
+          )}
 
           <p className={styles.formNote}>
             * Required fields. We respect your privacy and will never share your information.

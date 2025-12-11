@@ -1,8 +1,9 @@
+'use client';
+
+import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/contact.module.css';
 import Footer from '../components/footer';
-
-const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY;
 
 const contactChannels = [
 	{
@@ -23,6 +24,28 @@ const contactChannels = [
 ];
 
 export default function ContactPage() {
+	const [result, setResult] = useState("");
+
+	const onSubmit = async (event) => {
+		event.preventDefault();
+		setResult("");
+		const formData = new FormData(event.target);
+		formData.append("access_key", "651058f9-f1e2-4e94-968a-8bab901fc82d");
+
+		const response = await fetch("https://api.web3forms.com/submit", {
+			method: "POST",
+			body: formData
+		});
+
+		const data = await response.json();
+		if (data.success) {
+			setResult("Form submitted successfully! We'll get back to you soon.");
+			event.target.reset();
+		} else {
+			setResult("Something went wrong. Please try again.");
+		}
+	};
+
 	return (
 		<>
 			<Head>
@@ -88,8 +111,7 @@ export default function ContactPage() {
 					</div>
 
 					<div className={styles.formPanel}>
-						<form className={styles.contactForm} action="https://api.web3forms.com/submit" method="POST">
-							<input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE'} />
+						<form className={styles.contactForm} onSubmit={onSubmit}>
 							<div className={styles.formGrid}>
 								<label>
 									<span>Full Name</span>
@@ -132,6 +154,7 @@ export default function ContactPage() {
 							</label>
 							<input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 							<button type="submit" className={styles.submitButton}>Submit Form</button>
+							{result && <p style={{ marginTop: '16px', textAlign: 'center', color: result.includes('success') ? '#10b981' : '#ef4444' }}>{result}</p>}
 							<p className={styles.formDisclaimer}>
 								By submitting, you agree to our{' '}
 								<a href="/contact">privacy policy</a> and understand that availability is limited during peak wedding seasons.
