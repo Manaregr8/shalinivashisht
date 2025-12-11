@@ -108,7 +108,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
               <input
                 type="tel"
                 name="phone"
-                placeholder="+91 98765 43210"
+                placeholder="+91 9899936388"
                 required
               />
             </label>

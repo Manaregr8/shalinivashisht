@@ -8,17 +8,17 @@ import Footer from '../components/footer';
 const contactChannels = [
 	{
 		heading: 'Bridal & Destination',
-		detail: 'concierge@shalinivashisht.com',
+		detail: 'sv75usa@gmail.com',
 		note: 'Tailored timelines, travel-ready kits, and prep rituals for weddings worldwide.',
 	},
 	{
 		heading: 'Editorial & Campaigns',
-		detail: 'editorial@shalinivashisht.com',
+		detail: 'sv75usa@gmail.com',
 		note: 'Runway direction, brand launches, luxury shoots, and creative collaborations.',
 	},
 	{
 		heading: 'Workshops & Education',
-		detail: 'academy@shalinivashisht.com',
+		detail: 'sv75usa@gmail.com',
 		note: 'Private masterclasses and corporate immersions for teams and ateliers.',
 	},
 ];
@@ -123,7 +123,7 @@ export default function ContactPage() {
 								</label>
 								<label>
 									<span>Phone</span>
-									<input type="tel" name="phone" placeholder="+91 98765 43210" />
+									<input type="tel" name="phone" placeholder="+91 9899936388" />
 								</label>
 								<label>
 									<span>Event Date</span>

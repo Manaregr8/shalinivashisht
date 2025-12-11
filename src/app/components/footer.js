@@ -53,11 +53,11 @@ const Footer = () =>{
                         </p>
                         <div className={styles.footerContact} style={{ color: 'rgba(226, 232, 240, 0.78)' }}>
                             <span>Bookings & Enquiries</span>
-                            <a href="tel:+919876543210" style={{ color: '#facc15' }}>
-                                +91 98765 43210
+                            <a href="tel:+919899936388" style={{ color: '#facc15' }}>
+                                +91 9899936388
                             </a>
-                            <a href="mailto:hello@shalinivashisht.com" style={{ color: '#facc15' }}>
-                                hello@shalinivashisht.com
+                            <a href="mailto:sv75usa@gmail.com" style={{ color: '#facc15' }}>
+                                sv75usa@gmail.com
                             </a>
                             <div style={{ marginTop: '8px', display: 'flex', gap: '12px' }}>
                                 <a href="https://www.facebook.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer">
