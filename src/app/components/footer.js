@@ -61,13 +61,13 @@ const Footer = () =>{
                             </a>
                             <div style={{ marginTop: '8px', display: 'flex', gap: '12px' }}>
                                 <a href="https://www.facebook.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/facebook.svg" alt="Facebook" style={{ height: '28px', width: '28px' }} />
+                                    <img src="/facebook.svg" alt="Facebook" style={{ height: '28px', width: '28px', filter: 'brightness(0) invert(1)' }} />
                                 </a>
                                 <a href="https://www.instagram.com/makeupstudioshalinivasisht/" target="_blank" rel="noopener noreferrer">
-                                    <img src="/instagram.svg" alt="Instagram" style={{ height: '28px', width: '28px' }} />
+                                    <img src="/instagram.svg" alt="Instagram" style={{ height: '28px', width: '28px', filter: 'brightness(0) invert(1)' }} />
                                 </a>
                                 <a href="https://youtube.com/@shalinivasisht334?si=F4zN_PUvrVj7ZGBY" target="_blank" rel="noopener noreferrer">
-                                    <img src="/youtube.svg" alt="YouTube" style={{ height: '28px', width: '28px' }} />
+                                    <img src="/youtube-music-svgrepo-com.svg" alt="YouTube" style={{ height: '28px', width: '28px', filter: 'brightness(0) invert(1)' }} />
                                 </a>
                             </div>
                         </div>
