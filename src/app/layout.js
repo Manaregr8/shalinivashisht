@@ -23,6 +23,20 @@ export const metadata = {
     "editorial makeup services",
     "destination wedding makeup India",
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  themeColor: '#020617',
+  viewport: 'width=device-width, initial-scale=1',
+  robots: 'index, follow',
   openGraph: {
     title: "Shalini Vashisht | Luxury Bridal & Editorial Makeup Artist",
     description:
@@ -51,8 +65,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        {/* Meta Pixel Code */}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -66,10 +81,6 @@ export default function RootLayout({ children }) {
         <noscript>
           <img height="1" width="1" style={{display:'none'}} src="https://www.facebook.com/tr?id=1179564876849009&ev=PageView&noscript=1" />
         </noscript>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
         <Navbar />
         {children}
       </body>
